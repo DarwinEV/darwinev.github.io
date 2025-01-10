@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Aprende Inglés Conversando</title>
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+  
+  <!-- Custom CSS (local file or internal styles) -->
+  <link href="style.css" rel="stylesheet">
+</head>
+
+<body class="font-sans text-gray-800 bg-gray-50">
+  <!-- Header Section -->
+  <header class="bg-gray-100 sticky top-0 z-10 shadow-md fade-in">
+    <div class="container mx-auto flex justify-between items-center py-4 px-6">
+      <h1 class="text-xl font-bold text-gray-900">Aprende Inglés</h1>
+      <nav>
+        <ul class="flex space-x-6">
+          <li><a href="#about" class="hover:text-blue-600">Sobre Nosotros</a></li>
+          <li><a href="#features" class="hover:text-blue-600">Beneficios</a></li>
+          <li><a href="#contact" class="hover:text-blue-600">Contacto</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Hero Section -->
+  <section id="hero" class="relative bg-gray-50 py-16 fade-in">
+    <div class="container mx-auto grid-layout px-6">
+      <!-- Left Content -->
+      <div class="text-center md:text-left">
+        <h2 class="text-4xl font-semibold text-gray-900 mb-4">Aprende Inglés de Forma Natural</h2>
+        <p class="text-lg text-gray-700 mb-6">
+          Sesiones diarias con instructores bilingües para mejorar tus habilidades de conversación.
+        </p>
+        <a href="#contact" class="bg-blue-600 text-white py-3 px-6 rounded-full shadow-lg hover:bg-blue-500 transition duration-300">
+          Regístrate Ahora
+        </a>
+      </div>
+
+      <!-- Right Image -->
+      <div class="text-center">
+        <img src="./img1.jpg" alt="Profesor Bilingüe" class="rounded-xl shadow-lg mx-auto">
+      </div>
+    </div>
+  </section>
+
+  <!-- About Us Section -->
+  <section id="about" class="py-16 bg-white fade-in">
+    <div class="container mx-auto grid-layout px-6">
+      <!-- Left Image -->
+      <div class="text-center">
+        <img src="./img2.jpg" alt="Profesor Bilingüe" class="rounded-xl shadow-lg mx-auto">
+      </div>
+
+      <!-- Right Content -->
+      <div class="text-center md:text-left">
+        <h3 class="text-3xl font-semibold text-gray-900 mb-4">Sobre Nosotros</h3>
+        <p class="text-lg text-gray-700 mb-6">
+          Somos un grupo de profesores bilingües de inglés que queremos ayudar a la comunidad hispana a mejorar su inglés, 
+          para que no se pierdan oportunidades sociales y laborales.
+        </p>
+        <a href="#contact" class="bg-blue-600 text-white py-3 px-6 rounded-full shadow-lg hover:bg-blue-500 transition duration-300">
+          Contáctanos Ahora
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Features Section -->
+  <section id="features" class="py-16 bg-white fade-in">
+    <div class="container mx-auto text-center">
+      <h3 class="text-3xl font-semibold text-gray-900 mb-8">Beneficios del Curso</h3>
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <div class="p-6 border rounded-lg shadow-md fade-in">
+          <i class="fas fa-clock text-5xl text-blue-600 mb-4"></i>
+          <h4 class="text-xl font-semibold text-gray-900">Sesiones Flexibles</h4>
+          <p class="text-gray-700 mt-2">Elige sesiones de 30 minutos o 1 hora según tu agenda.</p>
+        </div>
+        <div class="p-6 border rounded-lg shadow-md fade-in">
+          <i class="fas fa-chalkboard-teacher text-5xl text-blue-600 mb-4"></i>
+          <h4 class="text-xl font-semibold text-gray-900">Instructores Expertos</h4>
+          <p class="text-gray-700 mt-2">Conversa con instructores que dominan español e inglés.</p>
+        </div>
+        <div class="p-6 border rounded-lg shadow-md fade-in">
+          <i class="fas fa-video text-5xl text-blue-600 mb-4"></i>
+          <h4 class="text-xl font-semibold text-gray-900">Clases Virtuales</h4>
+          <p class="text-gray-700 mt-2">Aprende desde casa o presencialmente en Monmouth County, NJ.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact Section -->
+  <section id="contact" class="bg-gray-50 py-16 fade-in">
+    <div class="container mx-auto text-center">
+      <h3 class="text-3xl font-semibold text-gray-900 mb-8">Contáctanos</h3>
+      <p class="text-gray-700 mb-6">
+        Déjanos tu información y te contactaremos pronto.
+      </p>
+      <form id="contactForm" class="max-w-md mx-auto bg-white p-6 rounded-lg shadow-lg">
+        <input type="text" name="name" id="name" placeholder="Tu Nombre" class="w-full p-3 border rounded-lg mb-4" required>
+        <input type="email" name="email" id="email" placeholder="Tu Correo" class="w-full p-3 border rounded-lg mb-4" required>
+        <textarea name="message" id="message" placeholder="Mensaje" class="w-full p-3 border rounded-lg mb-4"></textarea>
+        <button type="submit" class="w-full bg-blue-600 text-white py-3 rounded-lg hover:bg-blue-500 transition duration-300">
+          Enviar
+        </button>
+        <p id="responseMessage" class="text-green-600 mt-4 hidden">¡Gracias por contactarnos!</p>
+      </form>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="bg-gray-900 text-white py-6 fade-in">
+    <div class="container mx-auto text-center">
+      <p>&copy; 2025 Aprende Inglés Conversando. Todos los derechos reservados.</p>
+    </div>
+  </footer>
+
+  <script src="scripts.js"></script>
+</body>
+
+</html>
