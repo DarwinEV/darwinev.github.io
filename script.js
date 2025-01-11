@@ -1,58 +1,75 @@
-// GSAP and ScrollTrigger Animations
 document.addEventListener("DOMContentLoaded", () => {
-  // Register ScrollTrigger plugin
+  // Register GSAP plugins
   gsap.registerPlugin(ScrollTrigger);
 
-  // Apply fade-in animation to all elements with the class "fade-in"
-  gsap.utils.toArray(".fade-in").forEach((element) => {
-    gsap.from(element, {
-      opacity: 0,
-      y: 40, // Start position (slide up from 40px below)
-      duration: 1.5, // Duration of the animation
-      ease: "power3.out", // Easing function for smooth animation
-      scrollTrigger: {
-        trigger: element, // Element to trigger animation
-        start: "top 85%", // Start animation when the top of the element is 85% from viewport top
-        toggleActions: "play none none none", // Play animation once
-        markers: false, // Set to true for debugging (optional)
-      },
-    });
+  // Animate header opacity and position on scroll
+  const header = document.getElementById("header");
+
+  gsap.to(header, {
+    scrollTrigger: {
+      trigger: header,
+      start: "top top",
+      end: "bottom top",
+      scrub: true,
+      markers: false,
+    },
+    opacity: 1,
+    y: 0,
+    duration: 1,
+    ease: "power3.out",
   });
-});
 
-// Prevent automatic scroll on page load
-window.addEventListener("load", () => {
-  window.scrollTo(0, 0); // Scroll to top on load
-  document.documentElement.style.scrollBehavior = "auto"; // Disable smooth scrolling on load
-});
+  // Add sticky header effects (change background and shadow when scrolled)
+  window.addEventListener('scroll', () => {
+    if (window.scrollY > 100) {
+      header.classList.add("header-scrolled");
+    } else {
+      header.classList.remove("header-scrolled");
+    }
+  });
 
-// Smooth Scroll Effect for Sign Up Button
-const signUpButton = document.querySelector("a[href='#contact']");
-signUpButton.addEventListener("click", (event) => {
-  event.preventDefault(); // Prevent the default anchor behavior
-  const contactSection = document.getElementById("contact");
-  contactSection.scrollIntoView({ behavior: "smooth" });
+  // Mobile Menu Animation
+  const hamburger = document.getElementById("hamburger");
+  const mobileMenu = document.getElementById("mobileMenu");
 
-  // Re-enable smooth scrolling after the button is clicked
-  document.documentElement.style.scrollBehavior = "smooth"; // Enable smooth scrolling after click
-});
+  if (hamburger && mobileMenu) {
+    hamburger.addEventListener("click", () => {
+      // Toggle the mobile menu visibility with GSAP
+      const isOpen = mobileMenu.classList.contains("open");
 
-// Contact Form Submission
-const form = document.getElementById("contactForm");
-const responseMessage = document.getElementById("responseMessage");
+      if (isOpen) {
+        gsap.to(mobileMenu, {
+          opacity: 0,
+          y: -30,
+          duration: 0.5,
+          ease: "power3.in",
+          onComplete: () => {
+            mobileMenu.classList.remove("open");
+            mobileMenu.style.pointerEvents = "none"; // Disable interaction when closed
+          }
+        });
+      } else {
+        mobileMenu.classList.add("open");
+        mobileMenu.style.pointerEvents = "auto"; // Enable interaction when open
 
-form.addEventListener("submit", async (e) => {
-  e.preventDefault();
-
-  const name = document.getElementById("name").value;
-  const email = document.getElementById("email").value;
-  const message = document.getElementById("message").value;
-
-  try {
-    console.log(`Form submitted: ${name}, ${email}, ${message}`);
-    responseMessage.textContent = "¡Gracias por contactarnos!";
-    responseMessage.classList.remove("hidden");
-  } catch (error) {
-    console.error("Error sending form:", error);
+        gsap.fromTo(mobileMenu, {
+          opacity: 0,
+          y: -30
+        }, {
+          opacity: 1,
+          y: 0,
+          duration: 0.5,
+          ease: "power3.out"
+        });
+      }
+    });
   }
+
+  // Smooth Scroll for Sign Up Button
+  const signUpButton = document.querySelector("a[href='#contact']");
+  signUpButton.addEventListener("click", (event) => {
+    event.preventDefault();
+    const contactSection = document.getElementById("contact");
+    contactSection.scrollIntoView({ behavior: "smooth" });
+  });
 });
