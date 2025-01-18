@@ -1,4 +1,7 @@
 document.addEventListener("DOMContentLoaded", () => {
+  // Ensure the page starts at the top
+  window.scrollTo(0, 0);
+
   // Register GSAP plugins
   gsap.registerPlugin(ScrollTrigger);
 
