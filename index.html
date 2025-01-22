@@ -115,25 +115,54 @@
     </div>
   </section>
 
-  <!-- Contact Section -->
-  <section id="contact" class="bg-gray-50 py-16 fade-in">
-    <div class="container mx-auto text-center">
-      <h3 class="text-3xl font-semibold text-gray-900 mb-8">Contáctanos</h3>
-      <p class="text-gray-700 mb-6">
-        Déjanos tu información y te contactaremos pronto.
+<!-- Contact Section -->
+<section id="contact" class="bg-gray-50 py-16 fade-in">
+  <div class="container mx-auto text-center">
+    <h3 class="text-3xl font-semibold text-gray-900 mb-8">Contáctanos</h3>
+    <p class="text-gray-700 mb-6">
+      Déjanos tu información y te contactaremos pronto.
+    </p>
+    <form 
+      id="contactForm"
+      action="https://formspree.io/f/your_form_id" <!-- Replace with your Formspree endpoint -->
+      method="POST"
+      class="max-w-2xl mx-auto bg-white p-6 rounded-lg shadow-lg"
+    >
+      <input 
+        type="text" 
+        name="name" 
+        id="name" 
+        placeholder="Tu Nombre" 
+        class="w-full p-3 border rounded-lg mb-4" 
+        required
+      >
+      <input 
+        type="email" 
+        name="email" 
+        id="email" 
+        placeholder="Tu Correo" 
+        class="w-full p-3 border rounded-lg mb-4" 
+        required
+      >
+      <textarea 
+        name="message" 
+        id="message" 
+        placeholder="Mensaje" 
+        class="w-full p-3 border rounded-lg mb-4"
+      ></textarea>
+      <button 
+        type="submit" 
+        class="w-full bg-blue-600 text-white py-3 rounded-lg hover:bg-blue-500 transition duration-300"
+      >
+        Enviar
+      </button>
+      <p id="responseMessage" class="text-green-600 mt-4 hidden">
+        ¡Gracias por contactarnos!
       </p>
-        <form id="contactForm" class="max-w-2xl mx-auto bg-white p-6 rounded-lg shadow-lg">
+    </form>
+  </div>
+</section>
 
-        <input type="text" name="name" id="name" placeholder="Tu Nombre" class="w-full p-3 border rounded-lg mb-4" required>
-        <input type="email" name="email" id="email" placeholder="Tu Correo" class="w-full p-3 border rounded-lg mb-4" required>
-        <textarea name="message" id="message" placeholder="Mensaje" class="w-full p-3 border rounded-lg mb-4"></textarea>
-        <button type="submit" class="w-full bg-blue-600 text-white py-3 rounded-lg hover:bg-blue-500 transition duration-300">
-          Enviar
-        </button>
-        <p id="responseMessage" class="text-green-600 mt-4 hidden">¡Gracias por contactarnos!</p>
-      </form>
-    </div>
-  </section>
 
   <!-- Footer -->
   <footer class="bg-gray-900 text-white py-6 fade-in">
