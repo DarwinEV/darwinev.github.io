@@ -76,3 +76,32 @@ document.addEventListener("DOMContentLoaded", () => {
     contactSection.scrollIntoView({ behavior: "smooth" });
   });
 });
+
+// Custom Thank you Message
+document.getElementById("contactForm").addEventListener("submit", function (e) {
+  e.preventDefault();
+
+  // Fetch the form data
+  const formData = new FormData(this);
+
+  // Send the form data using fetch API
+  fetch(this.action, {
+    method: "POST",
+    body: formData,
+    headers: {
+      Accept: "application/json",
+    },
+  })
+    .then((response) => {
+      if (response.ok) {
+        document.getElementById("responseMessage").classList.remove("hidden");
+        this.reset();
+      } else {
+        console.error("Form submission failed");
+      }
+    })
+    .catch((error) => {
+      console.error("Error submitting form:", error);
+    });
+});
+
