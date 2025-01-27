@@ -5,18 +5,21 @@ html {
 img {
   max-width: 100%;
   height: auto;
+  border-radius: 0.5rem; /* Optional: round corners for images */
 }
 
 .grid-layout {
   display: grid;
   grid-template-columns: 1fr;
   gap: 1.5rem;
+  padding: 1.5rem; /* Add padding to the grid container */
 }
 
 @media (min-width: 768px) {
   .grid-layout {
     grid-template-columns: 1fr 1fr;
     align-items: center;
+    column-gap: 2rem; /* Add spacing between columns */
   }
 }
 
@@ -25,20 +28,90 @@ header {
   top: 0;
   z-index: 10;
   width: 100%;
+  background-color: white; /* Ensure header has a background color */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Subtle shadow for better visibility */
 }
 
 /* Start with the element being invisible */
 .fade-in {
   opacity: 0;
-  animation: fadeIn 1s ease-in-out forwards; /* 'fadeIn' is the name of the animation */
+  animation: fadeIn 1s ease-in-out forwards;
+  /* 'fadeIn' is the name of the animation */
 }
 
 /* Keyframes to handle the fade-in effect */
 @keyframes fadeIn {
   0% {
-    opacity: 0; /* Fully transparent */
+    opacity: 0;
+    /* Fully transparent */
   }
+
   100% {
-    opacity: 1; /* Fully opaque */
+    opacity: 1;
+    /* Fully opaque */
   }
+}
+
+/* Ensure consistent spacing around text and elements */
+section div > p,
+section div > h2,
+section div > h3,
+section div > a {
+  margin: 0.5rem 0; /* Add vertical spacing between text elements */
+}
+
+/* Add padding around sections for better spacing */
+#about,
+#hero,
+#features,
+#contact {
+  padding: 2rem 1.5rem; /* Add padding to all sides */
+}
+
+@media (min-width: 768px) {
+  #about,
+  #hero,
+  #features,
+  #contact {
+    padding: 3rem 2rem; /* Increase padding for larger screens */
+  }
+}
+
+/* Ensure spacing between text and images */
+#about .container,
+#hero .container {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.5rem; /* Ensure spacing between the image and text */
+}
+
+@media (min-width: 768px) {
+  #about .container,
+  #hero .container {
+    grid-template-columns: 1fr 1fr;
+    column-gap: 3rem; /* Add larger horizontal spacing for larger screens */
+  }
+}
+
+/* Ensure cards in the Features section have padding and spacing */
+#features .p-6 {
+  padding: 1.5rem;
+  margin: 0.5rem 0;
+  background-color: white; /* Ensure cards have a white background */
+  border-radius: 0.75rem; /* Slight rounding for cards */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Subtle shadow for elevation */
+}
+
+footer {
+  background-color: #1a202c; /* Dark gray background */
+  color: white; /* White text for contrast */
+  text-align: center;
+  padding: 1rem;
+  font-size: 0.875rem;
+}
+
+form input,
+form textarea,
+form button {
+  margin: 0.5rem 0; /* Add spacing between form elements */
 }
